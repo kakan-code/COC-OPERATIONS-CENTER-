@@ -1,47 +1,139 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu de Venda - COC</title>
-  <style>
-    body{background:#0D1117;color:white;font-family:Arial;text-align:center;padding:30px;}
-    h1{color:#16d936;font-size:32px;margin-bottom:10px;}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;max-width:1000px;margin:40px auto;}
-    .plano{background:#111;border:2px solid #22ff4f;border-radius:15px;padding:25px;transition:0.3s;}
-    .plano:hover{transform:translateY(-5px);box-shadow:0 0 25px rgba(0,255,70,.3);}
-    .preco{font-size:35px;color:#00ff88;font-weight:bold;margin:15px 0;}
-    .btn{width:100%;padding:15px;background:linear-gradient(135deg,#16b936,#0b6d20);border:none;border-radius:10px;color:white;font-size:18px;font-weight:bold;cursor:pointer;}
-    .btn:hover{box-shadow:0 0 20px rgba(0,255,70,.4);}
-  </style>
+  <link rel="stylesheet" href="menudevenda.css">
 </head>
 <body>
-  <h1>Escolha seu Plano COC</h1>
-  <p>Ative seu bot profissional agora</p>
-  
-  <div class="grid">
-    <div class="plano">
-      <h2>BASIC</h2>
-      <div class="preco">R$ 19,90</div>
-      <p>Bot Simples + Suporte</p>
-      <button class="btn" onclick="window.open('https://wa.me/5599984531106?text=Quero o plano BASIC','_blank')">COMPRAR AGORA</button>
+
+  <header>
+    <div class="tag">💎 NOSSOS PLANOS</div>
+    <h1>Escolha o bots <span>ideal</span> para você</h1>
+    <div class="linha"></div>
+    <p>Bots feitos com qualidade, responsividade e pensados para<br>
+      destacar sua presença na internet.</p>
+      <p>AVISE SUA ESCOLHA NO NOSSO WHATSAPP.</p>
+  </header>
+
+  <main class="planos">
+
+    <div class="card azul">
+      <div class="icone">▣</div>
+      <h2>MONGE-BOT | DiSCORD</h2>
+      <p>Ideal para quem está começando<br>e precisa de um bot.</p>
+      <div class="linha-card"></div>
+      <small></small>
+      <div class="preco"><span></span></div>
+
+      <ul>
+        <li>✓ 💰 ALUGUEL MENSAL — R$20/mês.</li>
+        
+        <li>✓Bot hospedado por 30 dias.</li>
+        <li>🔥 PERMANENTE + SUPORTE — R$45
+• Compra única
+• Código completo
+• Instalação incluída
+• 15 dias de suporte
+</li>
+<li>
+📁 SÓ ARQUIVO — R$25
+• Compra única
+• Arquivo .ZIP
+• Sem suporte
+</li>
+
+      </ul>
+
+      <a class="btn" href="pix.html">Escolher plano <b>→</b></a>
     </div>
-    
-    <div class="plano">
-      <h2>PRO 🔥</h2>
-      <div class="preco">R$ 39,90</div>
-      <p>Bot Avançado + Painel + Suporte 24h</p>
-      <button class="btn" onclick="window.open('https://wa.me/5599984531106?text=Quero o plano PRO','_blank')">COMPRAR AGORA</button>
+
+    <div class="card roxo">
+      <div class="icone"> </div>
+      <h2>📱 WHATSAPP</h2>
+      <p>Mais recursos e para<br>impulsionar seu negócio.</p>
+      
+      <div class="linha-card"></div>
+      <small></small>
+      <div class="preco"><span></span></div>
+
+
+
+      <ul>
+        <li>
+
+
+
+🔗 CONEXÃO BAILEYS BÁSICA — R$5
+• Script base para conexão com WhatsApp
+• Compra única
+
+
+
+
+</li>
+
+      </ul>
+
+
+
+      <a class="btn" href="pix.html">Escolher plano <b>→</b></a>
     </div>
-    
-    <div class="plano">
-      <h2>VIP 👑</h2>
-      <div class="preco">R$ 69,90</div>
-      <p>Tudo do PRO + Personalizado + Prioridade</p>
-      <button class="btn" onclick="window.open('https://wa.me/5599984531106?text=Quero o plano VIP','_blank')">COMPRAR AGORA</button>
+
+
+    <div class="card dourado">
+      <div class="icone">🚀</div>
+      <h2>Bot de discord</h2>
+      <p>Projeto 100% personalizado para<br>sua marca se destacar.</p>
+      <div class="linha-card"></div>
+      <small></small>
+      <div class="preco"><span></span></div>
+
+
+      <ul>
+        
+        <li>✓ 💻 DISCORD
+
+🔌 CÓDIGO DE CONEXÃO BÁSICA — R$5
+• Estrutura base
+• Configuração com token
+• Compra única
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+</li>
+        <li>✓🛠️ SERVIÇOS SOB ENCOMENDA
+
+⬇️ BOT DOWNLOAD INSTA + TIKTOK — R$35
+• Bot para baixar vídeos
+• +R$10 por comando extra </li>
+        
+      </ul>
+
+
+
+      <a class="btn" href="pix.html">Escolher plano <b>→</b></a>
     </div>
-  </div>
-  
-  <a href="index.html" style="color:#22ff4f;">← Voltar</a>
+
+
+
+  </main>
+
+
+
+  <section class="pix-box">
+    <div class="pix-icon">◆</div>
+    <div>
+      <h2>Pronto para começar?</h2>
+      <p>Clique no botão ao lado para fazer seu pagamento via Pix<br>
+      e iniciarmos seu projeto!</p>
+    </div>
+    <a href="pix.html" class="pix-btn">PAGAR COM PIX <b>→</b></a>
+  </section>
+
+  <footer>
+    &lt;/&gt; Desenvolvido com paixão para transformar ideias em sites incríveis.
+  </footer>
+
 </body>
 </html>

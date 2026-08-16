@@ -1,38 +1,124 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="pix.css"> <!-- LINKA O CSS -->
-  <title>Pagamento PIX - COC Backend</title>
+  <title>Pagamento via PIX</title>
+  <link rel="stylesheet" href="pix.css">
 </head>
-<body>
-  <div class="pix-container">
-    <h1>Quase lá! 🚀</h1>
-    <p>Escaneie o QR Code ou copie a chave PIX</p>
-    
-    <div class="valor" id="valor">R$ 39,90</div>
 
-    <div class="qr-code">
-      <img src="IMG-20260812-WA0019.jpg" alt="QR Code PIX"> <!-- COLOCA SEU QR AQUI -->
+<body>
+
+<header>
+  <div class="logo">Code operations center</div>
+
+  <nav>
+    <a href="test.html">Início</a>
+    <a href="menudevenda.html">Bots</a>
+    <a href="#">Sobre</a>
+    <a href="#">Contato</a>
+    <a href="menudevenda.html" class="voltar">← Voltar</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="titulo">
+    <div class="pix-logo">◆ <span>PIX</span></div>
+
+    <h1>Pagamento via PIX</h1>
+
+    <p>
+      Finalize seu pagamento de forma rápida, segura e prática.
+    </p>
+  </section>
+
+  <section class="pagamento">
+
+    <div class="qr-icon">▦</div>
+
+    <h2>Escaneie o QR Code</h2>
+
+    <p>
+      Abra o app do seu banco e escaneie o código abaixo
+    </p>
+
+    <!-- TROQUE A IMAGEM PELO SEU QR CODE -->
+    <img src="qrcode.png" class="qrcode" alt="QR Code PIX">
+
+    <div class="ou">
+      <span></span>
+      ou
+      <span></span>
     </div>
 
-    <p>Ou copie a chave:</p>
-    <div class="chave-pix" id="chavePix">COCPIX@SUA.CHAVE.AQUI</div>
-    
-    <button class="btn btn-copiar" onclick="copiarChave()">COPIAR CHAVE PIX</button>
-    <button class="btn btn-paguei" onclick="window.open('https://wa.me/5599984531106?text=Já paguei o plano','_blank')">JÁ PAGUEI ✅</button>
+    <h2>Copie nossa chave PIX</h2>
 
-    <p class="timer">⏰ Esse PIX expira em 30 minutos</p>
-    <a href="menudevenda.html" class="voltar">← Voltar</a>
-  </div>
+    <div class="chave">
+      <span id="pix">2230817a-b1cb-45fb-82bf-b9969e501b99</span>
 
-  <script>
-    function copiarChave() {
-      const chave = document.getElementById('chavePix').innerText;
-      navigator.clipboard.writeText(chave);
-      alert('Chave PIX copiada! ✅');
-    }
-  </script>
+      <button onclick="copiarPix()">
+        Copiar 📋
+      </button>
+    </div>
+
+    <p id="mensagem"></p>
+
+  </section>
+
+
+  <section class="info">
+
+    <h2>🛡️ Informações importantes</h2>
+
+    <p>✓ Confira os dados antes de realizar o pagamento</p>
+    <p>✓ Após o pagamento, entre em contato pelo WhatsApp</p>
+    <p>✓ Suporte disponível em caso de dúvidas</p>
+
+  </section>
+
+
+  <section class="suporte">
+
+    <div>
+      <h2>Precisa de ajuda?</h2>
+      <p>Fale com nosso suporte no WhatsApp</p>
+    </div>
+
+    <a
+      href="https://wa.me/5599984531106"
+      target="_blank"
+      class="whatsapp"
+    >
+      Falar no WhatsApp 💬
+    </a>
+
+  </section>
+
+</main>
+
+
+<footer>
+  ◆ DEV BOTS
+  <br>
+  <small>© 2026 Todos os direitos reservados.</small>
+</footer>
+
+
+<script>
+
+function copiarPix() {
+
+  const chave = document.getElementById("pix").innerText;
+
+  navigator.clipboard.writeText(chave);
+
+  document.getElementById("mensagem").innerText =
+    "✓ Chave PIX copiada!";
+
+}
+
+</script>
+
 </body>
 </html>

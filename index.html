@@ -1,78 +1,382 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>COC Backend</title>
 
   <style>
-    * {margin: 0;padding: 0;box-sizing: border-box;font-family: 'Segoe UI', Arial, sans-serif;}
-    body {background: #000;color: white;min-height: 100vh;}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
+    body {
+      background: #000;
+      color: white;
+      min-height: 100vh;
+    }
+
+    /* MENU */
     header {
-      width: 95%;margin: 15px auto;padding: 12px 18px;
-      border: 1px solid #164d24;border-radius: 18px;
+      width: 95%;
+      margin: 15px auto;
+      padding: 12px 18px;
+      border: 1px solid #164d24;
+      border-radius: 18px;
       background: linear-gradient(135deg, #050805, #020302);
-      box-shadow: 0 0 25px rgba(0, 255, 70, .12);
-      display: flex;align-items: center;justify-content: space-between;gap: 20px;flex-wrap: wrap;
+      box-shadow: 0 0 20px rgba(0, 255, 70, .08);
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 170px;
+    }
+.logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 170px;
+    }
+    .logo img {
+      width: 55px;
+      height: 55px;
+      object-fit: contain;
     }
 
-    .logo {display: flex;align-items: center;gap: 10px;}
-    .logo-emoji {font-size: 50px;filter: drop-shadow(0 0 15px #22ff4f);}
-    .logo-text {font-size: 24px;font-weight: bold;color: white;}
-    .logo-text span {display: block;font-size: 11px;letter-spacing: 4px;color: #22ff4f;margin-top: -3px;}
+    .logo-text {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
 
-    nav {display: flex;align-items: center;gap: 8px;flex-wrap: wrap;}
-    nav a {color: #ddd;text-decoration: none;padding: 13px 17px;border-radius: 10px;transition: .3s;font-size: 15px;}
-    nav a:hover, nav a.active {color: #22ff4f;background: rgba(0, 255, 70, .12);box-shadow: 0 0 15px rgba(0, 255, 70, .18);}
+    .logo-text span {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: #22ff4f;
+      margin-top: -3px;
+    }
 
-    .buttons {display: flex;gap: 10px;}
-    .btn {padding: 12px 17px;border-radius: 10px;text-decoration: none;color: white;border: 1px solid #1d6930;transition: .3s;white-space: nowrap;}
-    .btn:hover {box-shadow: 0 0 20px rgba(0, 255, 70, .4);transform: translateY(-2px);}
-    .btn-register {background: linear-gradient(135deg, #16b936, #0b6d20);border-color: #22ff4f;font-weight: bold;}
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-    .hero {text-align: center;padding: 55px 20px 30px;max-width: 1000px;margin: auto;}
-    .hero-icon {font-size: 130px;filter: drop-shadow(0 0 30px rgba(0,255,60,.35));margin-bottom: 20px;}
-    h1 {margin-top: 20px;color: #16d936;font-size: clamp(32px, 6vw, 55px);text-shadow: 0 0 15px rgba(0,255,60,.2);}
-    .hero p {max-width: 780px;margin: 25px auto;color: #ddd;font-size: 20px;line-height: 1.6;}
-    .line {width: 55%;height: 2px;margin: 35px auto;background: linear-gradient(90deg, transparent, #18e83c, transparent);box-shadow: 0 0 12px #18e83c;}
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      padding: 13px 17px;
+      border-radius: 10px;
+      transition: .3s;
+      font-size: 15px;
+    }
 
-    .intro {width: 90%;max-width: 900px;margin: 25px auto;padding: 25px;border: 1px solid #145824;border-radius: 18px;background: linear-gradient(135deg, #030a05, #020202);display: flex;align-items: center;gap: 25px;}
-    .intro-icon {font-size: 50px;}
-    .intro h2 {color: #20e849;margin-bottom: 8px;}
-    .intro p {color: #aaa;line-height: 1.5;}
+    nav a:hover,
+    nav a.active {
+      color: #22ff4f;
+      background: rgba(0, 255, 70, .08);
+      box-shadow: 0 0 15px rgba(0, 255, 70, .12);
+    }
 
-    .services {width: 90%;max-width: 1000px;margin: 45px auto;display: grid;grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));gap: 18px;}
-    .card {padding: 30px 18px;text-align: center;background: linear-gradient(160deg, #061008, #020202);border: 1px solid #0c4720;border-radius: 16px;transition: .3s;}
-    .card:hover {transform: translateY(-6px);border-color: #1cff4a;box-shadow: 0 0 25px rgba(0,255,70,.2);}
-    .card .icon {font-size: 40px;margin-bottom: 15px;}
-    .card h3 {color: #fff;margin-bottom: 12px;}
-    .card p {color: #999;line-height: 1.5;}
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
 
-    .support {width: 90%;max-width: 900px;margin: 50px auto;padding: 30px;border: 1px solid #145824;border-radius: 18px;background: linear-gradient(135deg, #031007, #020202);display: flex;align-items: center;justify-content: space-between;gap: 25px;flex-wrap: wrap;}
-    .support h2 {color: #20e849;margin-bottom: 10px;}
-    .support p {color: #aaa;margin-bottom: 18px;}
-    .whatsapp {display: inline-block;padding: 14px 22px;border-radius: 10px;background: linear-gradient(135deg, #19c943, #0b6d20);color: white;font-weight: bold;text-decoration: none;box-shadow: 0 0 20px rgba(25,201,67,.25);transition: .3s;}
-    .whatsapp:hover {transform: scale(1.04);box-shadow: 0 0 30px rgba(25,201,67,.45);}
+    .btn {
+      padding: 12px 17px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      border: 1px solid #1d6930;
+      transition: .3s;
+      white-space: nowrap;
+    }
 
-    .cadastro-texto {text-align: center;color: #888;font-size: 18px;margin: 30px 0;}
-    .cadastro-texto a {color: #00ff00;text-decoration: none;font-weight: bold;}
-    .cadastro-texto a:hover {text-decoration: underline;text-shadow: 0 0 10px #00ff00;}
+    .btn:hover {
+      box-shadow: 0 0 18px rgba(0, 255, 70, .35);
+      transform: translateY(-2px);
+    }
 
-    footer {text-align: center;padding: 35px;color: #555;border-top: 1px solid #0d2d15;margin-top: 60px;}
+    .btn-register {
+      background: linear-gradient(135deg, #16b936, #0b6d20);
+      border-color: #22ff4f;
+      font-weight: bold;
+    }
 
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 55px 20px 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .hero img {
+      width: 300px;
+      max-width: 80%;
+      filter: drop-shadow(0 0 25px rgba(0,255,60,.25));
+    }
+
+    h1 {
+      margin-top: 20px;
+      color: #16d936;
+      font-size: clamp(32px, 6vw, 55px);
+      text-shadow: 0 0 15px rgba(0,255,60,.2);
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: 25px auto;
+      color: #ddd;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    .line {
+      width: 55%;
+      height: 2px;
+      margin: 35px auto;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        #18e83c,
+        transparent
+      );
+      box-shadow: 0 0 12px #18e83c;
+    }
+
+    /* CARD PRINCIPAL */
+    .intro {
+      width: 90%;
+      max-width: 900px;
+      margin: 25px auto;
+      padding: 25px;
+      border: 1px solid #145824;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #030a05, #020202);
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .intro-icon {
+      font-size: 50px;
+    }
+
+    .intro h2 {
+      color: #20e849;
+      margin-bottom: 8px;
+    }
+
+    .intro p {
+      color: #aaa;
+      line-height: 1.5;
+    }
+
+    /* SERVIÇOS */
+    .services {
+      width: 90%;
+      max-width: 1000px;
+      margin: 45px auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 30px 18px;
+      text-align: center;
+      background: linear-gradient(160deg, #061008, #020202);
+      border: 1px solid #0c4720;
+      border-radius: 16px;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #1cff4a;
+      box-shadow: 0 0 25px rgba(0,255,70,.15);
+    }
+
+    .card .icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #999;
+      line-height: 1.5;
+    }
+
+    /* WHATSAPP */
+    .support {
+      width: 90%;
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 30px;
+      border: 1px solid #145824;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #031007, #020202);
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .support h2 {
+      color: #20e849;
+      margin-bottom: 10px;
+    }
+
+    .support p {
+      color: #aaa;
+      margin-bottom: 18px;
+    }
+
+    .whatsapp {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 10px;
+      background: #19c943;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(25,201,67,.25);
+      transition: .3s;
+    }
+
+    .whatsapp:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 30px rgba(25,201,67,.45);
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px;
+      color: #555;
+      border-top: 1px solid #0d2d15;
+      margin-top: 60px;
+    }
+
+    /* CELULAR */
     @media (max-width: 800px) {
-      header {flex-direction: column;padding: 15px;}
-      .intro {flex-direction: column;text-align: center;}
-      .support {flex-direction: column;text-align: center;}
+
+      header {
+        flex-direction: column;
+        padding: 15px;
+      }
+
+      .logo {
+        width: 100%;
+        justify-content: center;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        font-size: 13px;
+        padding: 10px;
+      }
+
+      .buttons {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero {
+        padding-top: 30px;
+      }
+
+      .hero img {
+        width: 240px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .intro {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .support {
+        flex-direction: column;
+        text-align: center;
+      }
     }
+
+    @media (max-width: 500px) {
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .logo-text {
+        font-size: 21px;
+      }
+
+      nav {
+        gap: 2px;
+      }
+
+      nav a {
+        padding: 8px;
+      }
+
+      .btn {
+        font-size: 13px;
+      }
+    }
+    
+    .cadastro-texto {
+  text-align: center;
+  color: #888; /* cor cinza igual da print */
+  font-size: 19px;
+  margin-top: 15px;
+  
+}
+
+.cadastro-texto a {
+  text-align: center;
+  color: #00ff00; /* verde neon igual botão */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cadastro-texto a:hover {
+
+  text-decoration: underline;
+}
+    
   </style>
 </head>
 
 <body>
+
   <header>
+
     <div class="logo">
-      <div class="logo-emoji">🚀</div> <!-- Troquei a imagem por emoji pra não quebrar -->
+      <img src="IMG-20260812-WA0019.jpg" alt="COC Backend">
       <div class="logo-text">
         COC
         <span>BACKEND</span>
@@ -87,49 +391,110 @@
     </nav>
 
     <div class="buttons">
-      <a href="index.html" class="btn">← Voltar</a> <!-- Corrigido: test.html não existe -->
-      <a href="menudevenda.html" class="btn btn-register">👤 Cadastro</a> <!-- Melhor levar pra venda -->
+      <a href="test.html" class="btn">← Voltar</a>
+      <a href="sobre.html" class="btn btn-register">👤 Cadastro</a>
     </div>
+
   </header>
 
+
   <main>
+
     <section class="hero">
-      <div class="hero-icon">🚀</div> <!-- Troquei a imagem por emoji -->
-      <h1>Bem-vindo ao COC Backend</h1>
+
+      <img src="IMG-20260812-WA0019.jpg" alt="COC Backend">
+
+      <h1>Bem-vindo ao COC Backend 🚀</h1>
+
       <p>
         Quer ter um bot profissional para o seu negócio?
         Aqui você encontra sites modernos, rápidos e personalizados
         para destacar sua marca na internet.
       </p>
+
       <div class="line"></div>
+
     </section>
+
 
     <section class="intro">
+
       <div class="intro-icon">💻</div>
+
       <div>
         <h2>Coloque seu projeto no ar!</h2>
-        <p>Escolha seu bot, personalize e coloque seu projeto no ar. Seu negócio merece uma presença digital de verdade.</p>
+
+        <p>
+          Escolha seu bot, personalize e coloque seu projeto no ar.
+          Seu negócio merece uma presença digital de verdade.
+        </p>
       </div>
+
     </section>
+
 
     <section class="services">
-      <div class="card"><div class="icon">⚡</div><h3>Rápido</h3><p>Bots otimizados para máxima performance.</p></div>
-      <div class="card"><div class="icon">🛡️</div><h3>Seguro</h3><p>Proteção e confiabilidade para seu projeto.</p></div>
-      <div class="card"><div class="icon">🎨</div><h3>Personalizado</h3><p>Design exclusivo para destacar sua marca.</p></div>
-      <div class="card"><div class="icon">🎧</div><h3>Suporte</h3><p>Atendimento rápido para te ajudar.</p></div>
+
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Rápido</h3>
+        <p>
+          Bots otimizados para máxima performance.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🛡️</div>
+        <h3>Seguro</h3>
+        <p>
+          Proteção e confiabilidade para seu projeto.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎨</div>
+        <h3>Personalizado</h3>
+        <p>
+          Design exclusivo para destacar sua marca.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎧</div>
+        <h3>Suporte</h3>
+        <p>
+          Atendimento rápido para te ajudar.
+        </p>
+      </div>
+
+    
     </section>
     
-    <p class="cadastro-texto">Não tem conta? <a href="menudevenda.html">Cadastre-se</a></p>
+
+    <p class="cadastro-texto">Não tem conta? 
+<a href="sobre.html">Cadastre-se</a></p>
 
     <section class="support" id="contato">
+
       <div>
         <h2>Precisa de ajuda?</h2>
-        <p>Fale com nosso suporte pelo WhatsApp.</p>
+
+        <p>
+          Fale com nosso suporte pelo WhatsApp.
+        </p>
+
+<a class="whatsapp" href="https://wa.me/5599984531106" target="_blank">
+    Falar no WhatsApp 💬
+</a>
       </div>
-      <a class="whatsapp" href="https://wa.me/5599984531106" target="_blank">Falar no WhatsApp 💬</a>
+
     </section>
+
   </main>
 
-  <footer>© 2026 COC Backend — Todos os direitos reservados.</footer>
-</body>
-</html>
+
+  <footer>
+    © 2026 COC Backend — Todos os direitos reservados.
+  </footer>
+
+  

